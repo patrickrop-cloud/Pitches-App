@@ -55,13 +55,15 @@ def update_profile(uname):
 def index():
 
     message= "Welcome to Pitch Application!!"
-    title= 'Pitch-app'
+    title= 'Pitches App'
+    sport= Pitches.query.filter_by(category = 'Sports').all()
+    technology= Pitches.query.filter_by(category = 'Technology').all()
     advertising = Pitches.query.filter_by(category = 'Advertising').all()
     interview= Pitches.query.filter_by(category = 'Interview').all()
     production=Pitches.query.filter_by(category = 'Production').all()
 
 
-    return render_template('index.html', message=message,title=title,advertising=advertising,interview=interview,production=production)
+    return render_template('index.html', message=message,title=title,sport=sport,technology=technology,advertising=advertising,interview=interview,production=production)
 
 
 

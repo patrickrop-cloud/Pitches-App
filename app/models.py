@@ -46,7 +46,7 @@ class User(UserMixin,db.Model):
 class Pitches(db.Model):
     __tablename__= 'pitches'
     id = db.Column(db.Integer,primary_key = True)
-    title = db.Column(db.String(255))
+    title = db.Column(db.String(20))
     category = db.Column(db.String(255),index=True,nullable=False)
     pitch = db.Column(db.String(255))
     date = db.Column(db.DateTime(250), default=datetime.utcnow)
@@ -58,8 +58,8 @@ class Pitches(db.Model):
         db.session.commit()
 
     @classmethod
-    def get_pitches(cls,cate):
-        pitch = Pitches.query.filter_by(category=cate).all()
+    def get_pitches(cls,category):
+        pitch = Pitches.query.filter_by(category=category).all()
         return pitch
 
     def __repr__(self):
