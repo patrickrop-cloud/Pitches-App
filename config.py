@@ -1,12 +1,12 @@
 import os
 
-from flask import config
 
 class Config:
     '''
     General configuration parent class
     '''
-    pass
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://patrick:patrick123@localhost/pitch'
 
 
 
