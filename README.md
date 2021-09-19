@@ -20,16 +20,31 @@ As at now, the app is not fully customized and functional yet. Pull requests for
 
 Technologies Used
 
-Python3.6.9 
+Python3
 Git
 flask and flask bootstrap
 postgres db(sqlAlchemy)
+HTML
+
+Dependencies
+
+Flask Bootsrap
+Flask WTF forms
+Flask Mail
+Flask Login
+Flask Venv
 
 Support and contact details
 
-In case of any issues,and questions, contact me through my github account patrickrop_cloud.
+In case of any issues,and questions, contact me through;
+Github: https://github.com/patrickrop-cloud
+Twitter: @patohrop09
 
 License
 
-MIT Copyright (c) 2021
+This project is under;
+
+MIT license
+
+MIT Copyright (c) 2021 
 
