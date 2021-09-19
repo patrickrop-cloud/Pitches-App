@@ -4,7 +4,7 @@ from . import mail
 
 
 def mail_message(subject,template,to,**kwargs):
-    sender_email = 'ali.mohamed@moringaschool.com'
+    sender_email = 'patrick.rop@student.moringaschool.com'
 
     email = Message(subject, sender=sender_email, recipients=[to])
     email.body= render_template(template + ".txt",**kwargs)
