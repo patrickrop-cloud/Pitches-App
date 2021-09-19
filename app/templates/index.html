@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{%import 'macro.html' as macro %}
+{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron" style="margin-top:0;">
+  <h2 class="text-center">WELCOME TO PITCH APPLICATION</h2>
+  <p class="text-center">In life, you only have 60 seconds to impress someone and say something meaningful.!!!</p>
+</div>
+
+<body>
+
+  <div class="container">
+    <div class="d-flex justify-content-center row">
+      <div class="card-groups">
+        <div class=" col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">Production Pitch</h5>
+            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+                Pitch</a></button><br><br>
+            {{ macro.showPitch(production) }}
+
+          </div>
+        </div>
+
+        <div class=" col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">Advertising Pitch</h5>
+            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+                Pitch</a></button><br><br>
+            {{ macro.showPitch(advertising) }}
+          </div>
+        </div>
+
+        <div class=" col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">Interview Pitch</h5>
+            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+                Pitch</a></button><br><br>
+            {{ macro.showPitch(interview) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

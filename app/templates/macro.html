@@ -1,0 +1,15 @@
+{% macro showPitch(piches) %}
+<div class="pitch">
+  {% if piches %}
+  {% for pitch in piches %}
+  <h3 class="title">{{pitch.title}}</h3>
+  <p>{{pitch.post}}</p>
+  <p>Category: {{pitch.category}}</p>
+  <p >posted on{{ pitch.date.strftime('%Y-%m-%d') }}</p>
+  {{pitch.comments.count()}} Comments<a href="{{url_for('main.comment',pitch_id = pitch.id)}}">Add Comment</a>
+    </div>
+  {% endfor %}
+  {% endif %}
+</div>
+
+{% endmacro %}
