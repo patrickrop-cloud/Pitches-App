@@ -1,9 +1,10 @@
-from flask import Flask, app
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 # from config import DevConfig
 from config import config_options
 from flask_bootstrap import Bootstrap
-from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy(app)
+
+
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
