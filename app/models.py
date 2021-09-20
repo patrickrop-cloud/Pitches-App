@@ -19,9 +19,6 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255),nullable = False)
 
-
-
-
     @property
     def password(self):
             raise AttributeError('You cannot read the password attribute')
@@ -34,11 +31,8 @@ class User(UserMixin,db.Model):
     def verify_password(self,password):
             return check_password_hash(self.pass_secure,password)
 
-
-
     def __repr__(self):
         return f'User {self.username}'
-
 
 class Pitches(db.Model):
     __tablename__= 'pitches'

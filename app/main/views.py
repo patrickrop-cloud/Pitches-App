@@ -5,8 +5,6 @@ from .forms import PitchForm,CommentForm,UpdateProfile
 from .. import db, photos
 from . import main
 
-
-
 @main.route('/')
 def index():
     message= "Welcome to Pitch Application!!"
