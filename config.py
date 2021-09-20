@@ -4,8 +4,8 @@ class Config:
 
     
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    #Database configurations
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://patrick:patrick@localhost/pitch'
     SQLALCHEMY_TRACK_MODIFICATIONS=False
     #email configurations

@@ -1,5 +1,5 @@
-from flask_login import login_required,current_user
 from flask import render_template,request,redirect,url_for,abort
+from flask_login import login_required,current_user
 from ..models import  Comments, User,Pitches
 from .forms import PitchForm,CommentForm,UpdateProfile
 from .. import db, photos
@@ -7,35 +7,54 @@ from . import main
 
 
 
-@main.route('/user/<uname>/update/pic',methods= ['POST'])
+@main.route('/')
+def index():
+    message= "Welcome to Pitch Application!!"
+    title= 'Pitches App'
+    sport= Pitches.query.filter_by(category = 'Sports').all()
+    technology= Pitches.query.filter_by(category = 'Technology').all()
+    advertising = Pitches.query.filter_by(category = 'Advertising').all()
+    interview= Pitches.query.filter_by(category = 'Interview').all()
+    production=Pitches.query.filter_by(category = 'Production').all()
+
+    return render_template('index.html', message=message,title=title,sport=sport,technology=technology,advertising=advertising,interview=interview,production=production)
+
+@main.route('/pitch/', methods = ['GET','POST'])
 @login_required
-def update_pic(uname):
-    user = User.query.filter_by(username = uname).first()
-    if 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
-        path = f'photos/{filename}'
-        user.profile_pic_path = path
-        db.session.commit()
+def new_pitch():
 
-    return redirect(url_for('main.profile',uname=uname))   
+    form = PitchForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        category = form.category.data
+        pitch= form.pitch.data
+        user_id = current_user
 
+        # Updated pitchinstance
+        new_pitch = Pitches(title=title,category= category,pitch= pitch,user_id=current_user.id)
+
+        title='New Pitch'
+
+        new_pitch.save_pitch()
+
+        return redirect(url_for('main.index'))
+
+    return render_template('pitch.html',form= form)
 
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(author = uname).first()
-
-    if user is None:
-        
+    if user == None: 
         abort(404)
 
     return render_template("profile/profile.html", user = user)
 
 
-@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@main.route('/user/<uname>/update',methods = ['POST','GET'])
 @login_required
 def update_profile(uname):
     user = User.query.filter_by(author = uname).first()
-    if user is None:
+    if user == None:
         abort(404)
 
     form = UpdateProfile()
@@ -51,43 +70,17 @@ def update_profile(uname):
     return render_template('profile/update.html',form =form)
  
 
-@main.route('/')
-def index():
-
-    message= "Welcome to Pitch Application!!"
-    title= 'Pitches App'
-    sport= Pitches.query.filter_by(category = 'Sports').all()
-    technology= Pitches.query.filter_by(category = 'Technology').all()
-    advertising = Pitches.query.filter_by(category = 'Advertising').all()
-    interview= Pitches.query.filter_by(category = 'Interview').all()
-    production=Pitches.query.filter_by(category = 'Production').all()
-
-
-    return render_template('index.html', message=message,title=title,sport=sport,technology=technology,advertising=advertising,interview=interview,production=production)
-
-
-
-@main.route('/pitch/', methods = ['GET','POST'])
+@main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
-def new_pitch():
+def update_pic(uname):
+    user = User.query.filter_by(username = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
 
-    form = PitchForm()
-
-    if form.validate_on_submit():
-        category = form.category.data
-        pitch= form.pitch.data
-        title=form.title.data
-
-        # Updated pitchinstance
-        new_pitch = Pitches(title=title,category= category,pitch= pitch,user_id=current_user.id)
-
-        title='New Pitch'
-
-        new_pitch.save_pitch()
-
-        return redirect(url_for('main.index'))
-
-    return render_template('pitch.html',form= form)
+    return redirect(url_for('main.profile',uname=uname))   
 
 
 @main.route('/categories/<cate>')
