@@ -5,19 +5,18 @@
 {% endblock %}
 
 {% block content %}
-<!-- <div class="jumbotron" style="margin-top:0;"> -->
-  <h2 class="text-center">WELCOME TO PITCHES APP</h2> <br>
-  <p class="text-center">Can your 60 seconds impress somebody?.!!!</p>
+<div class="jumbotron" style="margin-top:2px; background-color: azure;">
+  <h2 class="text-center">LET'S PITCH</h2>
+  <p class="text-center">Can your 60 seconds of your life impress somone?! <br> Give us your pitch!</p>
 </div>
 
 <body>
-
   <div class="container">
     <div class="d-flex justify-content-center row">
       <div class="card-groups">
         <div class=" col-md-4">
           <div class="card-body">
-            <h4 class="card-title" style="color: rgb(90, 175, 82);">Production</h4>
+            <h5 class="card-title">Production Pitch</h5>
             <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
                 Pitch</a></button><br><br>
             {{ macro.showPitch(production) }}
@@ -27,7 +26,24 @@
 
         <div class=" col-md-4">
           <div class="card-body">
-            <h4 class="card-title" style="color: rgb(90, 175, 82);">Sports</h4>
+            <h5 class="card-title">Advertising Pitch</h5>
+            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+                Pitch</a></button><br><br>
+            {{ macro.showPitch(advertising) }}
+          </div>
+        </div>
+
+        <div class=" col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">Interview Pitch</h5>
+            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+                Pitch</a></button><br><br>
+            {{ macro.showPitch(interview) }}
+          </div>
+        </div>
+        <div class=" col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">Sports</h5>
             <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
                 Pitch</a></button><br><br>
             {{ macro.showPitch(sport) }}
@@ -35,37 +51,15 @@
         </div>
         <div class=" col-md-4">
           <div class="card-body">
-            <h4 class="card-title" style="color: rgb(90, 175, 82);">Technology</h4>
+            <h5 class="card-title">Technology Pitch</h5>
             <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
                 Pitch</a></button><br><br>
             {{ macro.showPitch(technology) }}
           </div>
         </div>
-
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(90, 175, 82);">Advertising </h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(advertising) }}
-          </div>
-        </div>
-<!-- 
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(90, 175, 82);">Interview</h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(interview) }} -->
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  <!-- <div class="footer" style="background-color: rgb(92, 76, 76); text-align: center; padding: 2px; color: white;">
-    <footer>
-    <p>Author: <atrong>Patrick Rop</atrong><br>
-    <a href="mailto:hege@example.com">patrick.rop@student.moringaschool.com</a></p>
-    </footer>
-  </div> -->
-  {% endblock %}
+
+</body>
+{% endblock%}

@@ -17,7 +17,7 @@ def index():
     interview= Pitches.query.filter_by(category = 'Interview').all()
     production=Pitches.query.filter_by(category = 'Production').all()
 
-    return render_template('index.html', message=message,title=title,sport=sport,technology=technology,advertising=advertising,interview=interview,production=production)
+    return render_template('index.html', message=message,sport=sport,technology=technology,title=title,advertising=advertising,interview=interview,production=production)
 
 @main.route('/pitch/', methods = ['GET','POST'])
 @login_required
