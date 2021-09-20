@@ -6,66 +6,69 @@
 {% endblock %}
 
 {% block content %}
+{{ super() }}
+
 <div class="jumbotron" style="margin-top:2px; background-color: rgb(207, 247, 247); border-radius: 20px;">
   <h2 class="text-center">LET'S PITCH</h2>
   <p class="text-center">Can your 60 seconds of your life impress someone?! <br> Give us your pitch!</p>
 </div>
 
-<body>
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(158, 9, 9);">Interview Pitch</h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(interview) }}
-          </div>
-        </div>
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(158, 9, 9);">Production Pitch</h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(production) }}
-          </div>
-        </div> 
-
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(158, 9, 9);">Advertisements Pitch</h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(advertising) }}
-          </div>
-        </div> 
-
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(158, 9, 9);">Technology Pitch</h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(technology) }}
-          </div>
-        </div> 
-
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(158, 9, 9);">Sports Pitch</h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(sport) }}
-          </div>
-        </div>
-        <div class=" col-md-4">
-          <div class="card-body">
-            <h4 class="card-title" style="color: rgb(158, 9, 9);">Society Pitch</h4>
-            <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
-                Pitch</a></button><br><br>
-            {{ macro.showPitch(society) }}
-          </div>
-        </div>  
+<div>
+  <body>
+    <div class=" col-md-4">
+      <div class="card-body">
+        <h4 class="card-title" style="color: rgb(158, 9, 9);">Interview Pitch</h4>
+        <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+            Pitch</a></button><br><br>
+        {{ macro.showPitch(interview) }}
       </div>
     </div>
-  </div>
+    <div class=" col-md-4">
+      <div class="card-body">
+        <h4 class="card-title" style="color: rgb(158, 9, 9);">Production Pitch</h4>
+        <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+            Pitch</a></button><br><br>
+        {{ macro.showPitch(production) }}
+      </div>
+    </div> 
 
-</body>
+    <div class=" col-md-4">
+      <div class="card-body">
+        <h4 class="card-title" style="color: rgb(158, 9, 9);">Advertisements Pitch</h4>
+        <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+            Pitch</a></button><br><br>
+        {{ macro.showPitch(advertising) }}
+      </div>
+    </div> 
+
+    <div class=" col-md-4">
+      <div class="card-body">
+        <h4 class="card-title" style="color: rgb(158, 9, 9);">Technology Pitch</h4>
+        <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+            Pitch</a></button><br><br>
+        {{ macro.showPitch(technology) }}
+      </div>
+    </div> 
+
+    <div class=" col-md-4">
+      <div class="card-body">
+        <h4 class="card-title" style="color: rgb(158, 9, 9);">Sports Pitch</h4>
+        <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+            Pitch</a></button><br><br>
+        {{ macro.showPitch(sport) }}
+      </div>
+    </div>
+    <div class=" col-md-4">
+      <div class="card-body">
+        <h4 class="card-title" style="color: rgb(158, 9, 9);">Society Pitch</h4>
+        <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Enter a New
+            Pitch</a></button><br><br>
+        {{ macro.showPitch(society) }}
+      </div>
+    </div> 
+    <div>
+      <footer>Patrick Rop 2021</footer>
+    </div>
+  </body> 
+  </div>
 {% endblock%}
