@@ -9,13 +9,15 @@ from . import main
 def index():
     message= "Welcome to Pitch Application!!"
     title= 'Pitches App'
-    sport= Pitches.query.filter_by(category = 'Sports').all()
+    sport= Pitches.query.filter_by(category = 'Sport').all()
     technology= Pitches.query.filter_by(category = 'Technology').all()
     advertising = Pitches.query.filter_by(category = 'Advertising').all()
+    society=Pitches.query.filter_by(category = 'Society').all()
     interview= Pitches.query.filter_by(category = 'Interview').all()
     production=Pitches.query.filter_by(category = 'Production').all()
+    
 
-    return render_template('index.html', message=message,sport=sport,technology=technology,title=title,advertising=advertising,interview=interview,production=production)
+    return render_template('index.html', message=message,sport=sport,technology=technology,title=title,advertising=advertising,society=society,interview=interview,production=production)
 
 @main.route('/pitch/', methods = ['GET','POST'])
 @login_required
